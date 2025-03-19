@@ -4,6 +4,7 @@ import ContributionSummary from '@/components/ContributionSummary';
 import { useContributions } from '@/hooks/useContributions';
 import { Button } from '@/components/ui/button';
 import { User, UserPlus } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   const { contributions } = useContributions();
@@ -17,13 +18,17 @@ const Index = () => {
             <p className="text-muted-foreground">Make your contribution today</p>
           </div>
           <div className="flex gap-2">
-            <Button variant="outline" size="sm" className="flex items-center gap-1">
-              <User className="h-4 w-4" />
-              Login
+            <Button variant="outline" size="sm" className="flex items-center gap-1" asChild>
+              <Link to="/login">
+                <User className="h-4 w-4" />
+                Login
+              </Link>
             </Button>
-            <Button size="sm" className="flex items-center gap-1">
-              <UserPlus className="h-4 w-4" />
-              Register
+            <Button size="sm" className="flex items-center gap-1" asChild>
+              <Link to="/register">
+                <UserPlus className="h-4 w-4" />
+                Register
+              </Link>
             </Button>
           </div>
         </div>
