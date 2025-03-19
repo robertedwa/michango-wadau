@@ -3,7 +3,7 @@ import ContributionForm from '@/components/ContributionForm';
 import ContributionSummary from '@/components/ContributionSummary';
 import { useContributions } from '@/hooks/useContributions';
 import { Button } from '@/components/ui/button';
-import { User, UserPlus } from 'lucide-react';
+import { User, UserPlus, BarChart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Index = () => {
@@ -38,9 +38,20 @@ const Index = () => {
         </div>
         
         {contributions.length > 0 && (
-          <div className="glass-card rounded-xl p-6 sm:p-8 shadow-xl shadow-primary/5 border border-primary/10">
-            <ContributionSummary />
-          </div>
+          <>
+            <div className="glass-card rounded-xl p-6 sm:p-8 shadow-xl shadow-primary/5 border border-primary/10">
+              <ContributionSummary />
+            </div>
+            
+            <div className="flex justify-center">
+              <Button variant="outline" className="flex items-center gap-2" asChild>
+                <Link to="/report">
+                  <BarChart className="h-4 w-4" />
+                  View Detailed Report
+                </Link>
+              </Button>
+            </div>
+          </>
         )}
       </div>
     </div>
